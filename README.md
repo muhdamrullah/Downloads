@@ -69,30 +69,11 @@ Dependencies:
 Compiling on linux:
 
 * `cd Downloads`
+* `git clone git://github.com/bytefish/libfacerec`
+* `cmake .`
+* `make`
 * `cd faceRecogEmotion`
 * `cmake .` - now the reco file should be generated
-
-Cross-compiling for windows:
-
-* Using CMake or CMakeGUI, select emotime as source folder and configure.
-* If it complains about setting the variable `OpenCV_DIR` set it to the appropriate path so that:
-  - C:/path/to/opencv/dir/ contains the libraries (`*.lib`)
-  - C:/path/to/opencv/dir/include contains the include directories (opencv and opencv2)
-  - **IF the include directory is missing** the project will likely not be able
-    to compile due to missing reference to `opencv2/opencv` or similar.
-* Then generate the project and compile it.
-* This was tested with Visual Studio 12 64 bit.
-
-## Detection and Prediction
-
-Proof of concept model trained using faces extracted using the detector `cbcl1` are available for download, mulclass strategy [1 vs all](https://dl.dropboxusercontent.com/u/7618747/dataset_svm_354_cbcl1_1vsall.zip) and [many vs many](https://dl.dropboxusercontent.com/u/7618747/dataset_svm_354_cbcl1_1vsallext.zip) can be found.
-
-__NOTE: Trained models for latest version of the code are available in the [v1.2 release page](https://github.com/luca-m/emotime/releases/tag/v1.2-experimental)__
-
-_NOTE: watch for illumination! At the moment optimal results can be obtained in live webcam sessions using direct illumination directed to the user's face. Don't worry you are not required to blind you with a headlight._
-
-__If you'd like to try emotime without any further complication you should take a look to the [x86_64 release](https://github.com/luca-m/emotime/releases/tag/v1.1-experimental).__
-
 
 ### Usage
 
@@ -113,7 +94,7 @@ _First, rough evaluation of the performance of the system_
 Validation test involved the whole system `face detector + emotion classifier`, so should not be considered relative to the _emotion classifier_ itself. 
 
 Of course, a more fine validation shuld be tackled in order to evaluate emotion classifier alone.
-For the sake of completeness the reader have to know that the _cbcl1_ face model is a good face locator rather than detector, roughly speaking it detects less but is more precise.
+For the sake of completeness the reader have to know that the haarcascade_frontalface face model is a good face locator rather than detector, roughly speaking it detects less but is more precise.
 
 Following results are commented with my personal - totally informal - evaluation after live webcam session.
 
